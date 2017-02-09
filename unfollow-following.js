@@ -1,9 +1,9 @@
 var T = require('./index.js'),
   argv = require('minimist')(process.argv.slice(2)),
-  stopId = argv['stopId'] || -1; //348336389 = omgisarcasm
+  stopId = argv['stopId'] || -1; // defines friends not to unfollow
 
 T.get('friends/ids', {
-  screen_name: 'geekykaran',
+  screen_name: 'screen_name',
   count: 2000
 }, function(err, data, response) {
   var idList = data.ids,

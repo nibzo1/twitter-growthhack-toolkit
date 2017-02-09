@@ -35,6 +35,16 @@ module.exports = {
     });
   },
 
+  doReTweet: function(id) {
+    T.post('statuses/retweet', {
+      id: id
+    }, function(err, data, response) {
+      if (err && err.code !== 327) { //Error codes: {327: Already retweeted status}
+        console.log(err);
+      }
+    });
+  },
+
   getUsername: function(idList, callback) {
     T.get('users/lookup', {
       user_id: idList
@@ -48,6 +58,16 @@ module.exports = {
       user_id: id
     }, function(err, data, response) {
       if (err) {
+        console.log(err);
+      }
+    });
+  },
+
+  doUnFollow: function(id, callback) {
+    T.post('friendships/destroy', {
+      user_id: id
+    }, function(err, data, response) {
+      if (err && err.code !== 88) { //Error codes: {88: rate limit reached}
         console.log(err);
       }
     });
