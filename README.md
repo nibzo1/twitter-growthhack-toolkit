@@ -21,7 +21,8 @@
 
 ## How to use
 
-Coming soon
+1. create a twitter app from https://apps.twitter.com/, get *keys* and *access tokens* and set them up in `index.js`
+2. run `npm install` then `node name_of_file.js` (example `node unfollow-unfollowing.js`)
 
 
 ## Contact
