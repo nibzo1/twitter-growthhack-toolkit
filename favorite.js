@@ -3,7 +3,9 @@ var T = require('./index'),
   argv = require('minimist')(process.argv.slice(2)),
   userId = argv['userId'] || -1,
   count  = argv['count'];
-
+  if(count === "undefined") {
+    console.log("usage: node favorite.js userId count");
+  }
 var fetchStatusesAndFavorite = function(userId, count) {
   count = count || 10;
   T.get('statuses/user_timeline', {
